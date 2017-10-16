@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Tutorial Building CRUD App from Scratch using MEAN Stack (Angular 2)
 
 This source code is part of tutorial [Tutorial Building CRUD App from Scratch using MEAN Stack (Angular 2)](https://www.djamware.com/post/58cf4e1c80aca72df8d1cf7e/tutorial-building-crud-app-from-scratch-using-mean-stack-angular-2)
@@ -33,3 +34,6 @@ Run `ng github-pages:deploy` to deploy to GitHub Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# meancrud
+>>>>>>> 4b32481e1fb982acf931b7580a31e2db0d00b499
