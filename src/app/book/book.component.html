@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Book Catalogue
+  <h1>Library
     <a [routerLink]="['/book-create']" class="btn btn-default btn-lg">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
@@ -7,17 +7,27 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Author</th>
+        <th [class.active]="order === 'title'"
+        (click)="setOrder('title')"
+        class="mdl-data-table__cell--non-numeric">Title <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span></th>
+        <th [class.active]="order === 'author'"
+        (click)="setOrder('author')"
+        class="mdl-data-table__cell--non-numeric">Author <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span></th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let book of books">
-        <td>{{ book.title }}</td>
+      <tr *ngFor="let book of books | orderBy: order:reverse">
+        <td class="mdl-data-table__cell--non-numeric">{{ book.title }}</td>
         <td>{{ book.author }}</td>
-        <td><a [routerLink]="['/book-details', book._id]">Show Details</a></td>
+        <td>
+          <a [routerLink]="['/book-details', book._id]" class="viewicon"><i class="fa fa-eye" aria-hidden="true"></i></a> &nbsp;
+          <a [routerLink]="['/book-edit', book._id]" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+          <button class="btn btn-danger" type="button" (click)="deleteBook(book._id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+

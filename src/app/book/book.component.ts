@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../book.service';
+
 
 @Component({
   selector: 'app-book',
@@ -9,8 +11,9 @@ import { BookService } from '../book.service';
 export class BookComponent implements OnInit {
 
   books: any;
-
-  constructor(private bookService: BookService) { }
+  order: string = 'title';
+  reverse: boolean = false;
+  constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getBookList();
@@ -23,6 +26,23 @@ export class BookComponent implements OnInit {
     }, (err) => {
       console.log(err);
     });
+  }
+
+  deleteBook(id) {
+    confirm('Are you sure to delete?');
+    this.bookService.deleteBook(id).then((result) => {
+      window.location.reload();
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
+    this.order = value;
   }
 
 }

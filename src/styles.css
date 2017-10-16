@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.viewicon {
+    border: 1px solid;
+    padding: 8px;
+    border-radius: 5px;
+}

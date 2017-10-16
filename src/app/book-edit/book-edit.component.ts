@@ -29,7 +29,7 @@ export class BookEditComponent implements OnInit {
   updateBook(id) {
     this.bookService.updateBook(id, this.book).then((result) => {
       let id = result['_id'];
-      this.router.navigate(['/book-details', id]);
+      this.router.navigate(['/']);
     }, (err) => {
       console.log(err);
     });
